@@ -6,7 +6,7 @@ function adicionarAmigo() {
     let nomeAmigo = campoNome.value.trim();
 
     // Valida a entrada
-    if (nomeAmigo == "") {
+    if (nomeAmigo === "") {
         alert("Por favor, insira um nome.");
         return;
     }
@@ -34,17 +34,31 @@ function sortearAmigo() {
     let resultado = document.getElementById('resultado');
     resultado.innerHTML = ''; // Limpa o resultado anterior
 
-    // Embaralha o array de amigos
-    let amigosEmbaralhados = amigos.slice(); // Cria uma cópia da lista
-    amigosEmbaralhados.sort(() => Math.random() - 0.5); // Embaralha a lista
+    // Tenta embaralhar os amigos até que ninguém tire a si mesmo
+    let sucesso = false;
+    while (!sucesso) {
+        sucesso = true;
+        let amigosEmbaralhados = amigos.slice();
+        amigosEmbaralhados.sort(() => Math.random() - 0.5);
 
-    // Associa cada amigo a um amigo secreto
-    for (let i = 0; i < amigos.length; i++) {
-        let itemResultado = document.createElement('li'); // Cria um item de lista para exibir o resultado
-        let amigo = amigos[i]; // O amigo atual
-        let amigoSecreto = amigosEmbaralhados[(i + 1) % amigosEmbaralhados.length]; // O amigo secreto é o próximo da lista, com wrap-around
-        itemResultado.textContent = `${amigo} tirou ${amigoSecreto}`; // Exibe o resultado
-        resultado.appendChild(itemResultado); // Adiciona o resultado à lista na tela
+        // Verifica se alguém tirou a si mesmo
+        for (let i = 0; i < amigos.length; i++) {
+            if (amigos[i] === amigosEmbaralhados[i]) {
+                sucesso = false;
+                break;
+            }
+        }
+
+        // Se a atribuição foi bem-sucedida, exibe o resultado
+        if (sucesso) {
+            for (let i = 0; i < amigos.length; i++) {
+                let itemResultado = document.createElement('li');
+                let amigo = amigos[i];
+                let amigoSecreto = amigosEmbaralhados[i];
+                itemResultado.textContent = `${amigo} tirou ${amigoSecreto}`;
+                resultado.appendChild(itemResultado);
+            }
+        }
     }
 }
 
