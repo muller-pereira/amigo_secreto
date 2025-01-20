@@ -6,8 +6,8 @@ Este projeto é uma aplicação simples que permite aos usuários adicionar amig
 
 - Adicionar nomes à lista de amigos.
 - Validar a entrada para garantir que o campo de nome não esteja vazio.
-- Atualizar o array de amigos e exibir a lista de amigos na tela.
-- Sortear o amigo secreto entre os amigos adicionados.
+- Atualizar a lista de amigos e exibir na tela.
+- Sortear o amigo secreto entre os amigos adicionados, garantindo que ninguém tire a si mesmo.
 - Exibir o resultado do sorteio na tela.
 
 ## Estrutura dos Arquivos
