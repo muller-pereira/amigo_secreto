@@ -18,7 +18,7 @@ Este projeto é uma aplicação simples que permite aos usuários adicionar amig
 
 ## Como Usar
 
-1. Abra o arquivo `index.html` em um navegador.
+1. Clique no link [Amigo Secreto](https://amigo-secreto-alpha-teal.vercel.app/).
 2. Digite o nome de um amigo no campo de entrada e clique no botão "Adicionar".
 3. Adicione mais amigos repetindo o passo 2.
 4. Após adicionar pelo menos dois amigos, clique no botão "Sortear amigo" para realizar o sorteio do amigo secreto.
